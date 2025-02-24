@@ -1,4 +1,4 @@
-package org.dppware.lib.utils.json;
+package io.github.danipenaperez.lib.utils.json;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -8,9 +8,9 @@ import java.util.Map;
 public class TreeMappingAssembler {
 
 	
-	public Map<String, Map> assembleMapping(String includeFields) {
+	public Map<String, Map> assembleMapping(String targetFields) {
 
-		List<String> nodes = Arrays.asList(includeFields.split(","));
+		List<String> nodes = Arrays.asList(targetFields.split(","));
 		Map<String, Map> structure = new HashMap<>();
 		nodes.forEach(_nodeEntry -> {
 			String nodeEntry = _nodeEntry.trim();

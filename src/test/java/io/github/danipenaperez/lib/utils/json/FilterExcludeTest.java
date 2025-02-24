@@ -1,4 +1,4 @@
-package org.dppware.lib.utils.json;
+package io.github.danipenaperez.lib.utils.json;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -9,12 +9,13 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import io.github.danipenaperez.lib.utils.json.FilterExclude;
+
 public class FilterExcludeTest {
 	@SuppressWarnings("unused")
 	private static final Logger LOGGER = LoggerFactory.getLogger(FilterExcludeTest.class);
 	
-	
-	String data = """
+String data = """
 			
 			{
 			    "countries":[
@@ -24,6 +25,7 @@ public class FilterExcludeTest {
 			            "cities":[
 			                {
 			                    "name": "Madrid",
+			                    "flagImage": "madrid.jpeg",
 			                    "location": {
 			                        "latitude": 40.4165,
 			                        "longitude": -3.70256
@@ -31,6 +33,7 @@ public class FilterExcludeTest {
 			                },
 			                {
 			                    "name": "Barcelona",
+			                    "flagImage": "barcelona.jpeg",
 			                    "location": {
 			                        "latitude": 41.38879,
 			                        "longitude": 2.15899
@@ -44,6 +47,7 @@ public class FilterExcludeTest {
 			            "cities":[
 			                {
 			                    "name": "Paris",
+			                    "flagImage": "paris.jpeg",
 			                    "location": {
 			                        "latitude": 48.85341,
 			                        "longitude": 2.3488
@@ -61,7 +65,6 @@ public class FilterExcludeTest {
 			
 			
 			""";
-	
 	
 	
 	@Test
@@ -137,5 +140,15 @@ public class FilterExcludeTest {
 		});
 		
 
+	}
+	
+	
+	@Test
+	void testReadMeExamples() throws Exception {
+		String excludeNodes = "pagination*, countries_habitants, countries_cities_flagImage, countries_cities_location_latitude ";
+		
+		JSONObject jsonObject =new FilterExclude().apply(new JSONObject(data), excludeNodes);
+	
+		System.out.println(jsonObject);
 	}
 }

@@ -1,4 +1,4 @@
-package org.dppware.lib.utils.json;
+package io.github.danipenaperez.lib.utils.json;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -8,6 +8,8 @@ import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import io.github.danipenaperez.lib.utils.json.FilterInclude;
 
 public class FilterIncludeTest {
 	@SuppressWarnings("unused")
@@ -22,6 +24,7 @@ public class FilterIncludeTest {
 			            "cities":[
 			                {
 			                    "name": "Madrid",
+			                    "flagImage": "madrid.jpeg",
 			                    "location": {
 			                        "latitude": 40.4165,
 			                        "longitude": -3.70256
@@ -29,6 +32,7 @@ public class FilterIncludeTest {
 			                },
 			                {
 			                    "name": "Barcelona",
+			                    "flagImage": "barcelona.jpeg",
 			                    "location": {
 			                        "latitude": 41.38879,
 			                        "longitude": 2.15899
@@ -42,6 +46,7 @@ public class FilterIncludeTest {
 			            "cities":[
 			                {
 			                    "name": "Paris",
+			                    "flagImage": "paris.jpeg",
 			                    "location": {
 			                        "latitude": 48.85341,
 			                        "longitude": 2.3488
@@ -90,6 +95,7 @@ public class FilterIncludeTest {
 			cities.forEach(_city->{
 				JSONObject city = (JSONObject)_city;
 				assertNotNull(city.get("name")); //Must exists
+				assertNotNull(city.get("flagImage")); //Must exists
 				
 				/** 
 				 * includePattern:  countries_cities_location_latitude
@@ -134,6 +140,7 @@ public class FilterIncludeTest {
 			cities.forEach(_city->{
 				JSONObject city = (JSONObject)_city;
 				assertNotNull(city.get("name")); //Must exists
+				assertNotNull(city.get("flagImage")); //Must exists
 				
 				/** 
 				 * includePattern:  countries_cities_location_latitude
@@ -149,4 +156,12 @@ public class FilterIncludeTest {
 
 	}
 	
+	@Test
+	void testReadMeExamples() throws Exception {
+		String includeNodes = "pagination_*, countries_name, countries_cities_name, countries_cities_location_latitude ";
+		
+		JSONObject jsonObject =new FilterInclude().apply(new JSONObject(data), includeNodes);
+	
+		System.out.println(jsonObject);
+	}
 }

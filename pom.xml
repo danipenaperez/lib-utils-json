@@ -6,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.danipenaperez</groupId>
 	<artifactId>lib-utils-json</artifactId>
-	<version>0.0.2</version>
+	<version>0.1.0</version>
 	<url>https://github.com/danipenaperez/lib-utils-json</url>
 	<description>Utilities to transform and manage JSON Objects</description>
 	<properties>

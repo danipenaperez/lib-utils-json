@@ -1,4 +1,4 @@
-package org.dppware.lib.utils.json;
+package io.github.danipenaperez.lib.utils.json;
 
 import org.junit.jupiter.api.Test;
 
