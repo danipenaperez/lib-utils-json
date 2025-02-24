@@ -75,9 +75,9 @@ String data = """
 
 You only want to maintain this fields: 
 
-- countries_name: will maintain name in all countries array objects. If countries were and object, "name" will not be maintaned.   
+- countries_name: will maintain name in all countries array objects. If countries were and object, "name" will be included.   
 - countries_cities_name :  same behaviour
-- countries_cities_location_latitude : all other not specified nodes at location longitude will not be included
+- countries_cities_location_latitude : all other not specified nodes at location longitude will not be included (so longitude will not be included)
 - pagination_* : will maintain all nodes inside pagination object
 
 
