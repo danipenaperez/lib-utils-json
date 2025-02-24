@@ -201,8 +201,9 @@ output:
 
 ## Advanced Recursive
 
-If you want to include/exclude all nodes inside and object but maintain it, use  (object_child_coordinates_*) 
-If want to include/exclude the whole tree of an object use  (object_child_coordinates*)   (note underscore)
+- If you want to include/exclude all nodes inside and object but maintain it, use  ( object_child_coordinates_* ) 
+
+- If want to include/exclude the whole tree of an object use  ( object_child_coordinates\* )   (note underscore)
 
 
 
